@@ -82,41 +82,108 @@ function generateAtributes() {
 		<tr>
 			<td>Fuerza (FUE)</td>
 			<td id="fuerza">
-				<input type="number" value="`+ atributes_json["fuerza"] + `" >
+				<input id="fue_input" type="number" value="`+ atributes_json["fuerza"] + `" >
 
 			</td >
+			<td>
+			<button id="swapFUE_DES" >-</button>
+			</td>
 		</tr >
 		<tr>
 			<td>Destreza (DES)</td>
 			<td id="destreza">
-					<input type="number" value="`+ atributes_json["destreza"] + `" >
+			<input id="des_input" type="number" value="`+ atributes_json["destreza"] + `" >
 			</td>
+			<td>
+			<button id="swapDES_CON" >-</button>
+						</td>
 		</tr>
 		<tr>
 			<td>Constitucion (CON)</td>
 			<td id="constitucion">
-					<input type="number" value="`+ atributes_json["constitucion"] + `" >
+			<input id="con_input" type="number" value="`+ atributes_json["constitucion"] + `" >
 			</td>
+						<td>
+			<button id="swapCON_INT" >-</button>
+						</td>
 		</tr>
 		<tr>
 			<td>Inteligencia (INT)</td>
-			<td id="inteligencia">	
-				<input type="number" value="`+ atributes_json["inteligencia"] + `" ></td>
-		</tr>
+			<td>
+			<input id="int_input" type="number" value="`+ atributes_json["inteligencia"] + `" ></td>
+		
+					<td>
+		<button id="swapINT_SAB" >-</button>
+					</td>
 		<tr>
 			<td>Sabiduria (SAB)</td>
 			<td id="sabiduria">
-					<input type="number" value="`+ atributes_json["sabiduria"] + `" >
+					<input id="sab_input" type="number" value="`+ atributes_json["sabiduria"] + `" >
 			</td>
+						<td>
+			<button id="swapSAB_CAR" >-</button>
+						</td>
 		</tr>
 		<tr>
 			<td>Carisma (CAR)</td>
 			<td id="carisma">
-					<input type="number" value="`+ atributes_json["carisma"] + `" >
+					<input id="car_input" type="number" value="`+ atributes_json["carisma"] + `" >
 			</td>
+						<td>
+			<button id="swapCAR_FUE" >-</button>
+						</td>
 		</tr>
 		</table > `
 	document.getElementById("atributtes_div").innerHTML = atributes_html;
+	let swapFUE_DES_btn = document.getElementById('swapFUE_DES');
+	let swapDES_CON_btn = document.getElementById('swapDES_CON');
+	let swapCON_INT_btn = document.getElementById('swapCON_INT');
+	let swapINT_SAB_btn = document.getElementById('swapINT_SAB');
+	let swapSAB_CAR_btn = document.getElementById('swapSAB_CAR');
+	let swapCAR_FUE_btn = document.getElementById('swapCAR_FUE');
+
+	swapFUE_DES_btn.onclick = function () {
+		v1 = document.getElementById("fue_input").value
+		v2 = document.getElementById("des_input").value
+
+		document.getElementById("fue_input").value = v2
+		document.getElementById("des_input").value = v1
+	}
+	swapDES_CON_btn.onclick = function () {
+		v1 = document.getElementById("des_input").value
+		v2 = document.getElementById("con_input").value
+
+		document.getElementById("des_input").value = v2
+		document.getElementById("con_input").value = v1
+	}
+	swapCON_INT_btn.onclick = function () {
+		v1 = document.getElementById("con_input").value
+		v2 = document.getElementById("int_input").value
+
+		document.getElementById("con_input").value = v2
+		document.getElementById("int_input").value = v1
+	}
+	swapINT_SAB_btn.onclick = function () {
+		v1 = document.getElementById("int_input").value
+		v2 = document.getElementById("sab_input").value
+
+		document.getElementById("int_input").value = v2
+		document.getElementById("sab_input").value = v1
+	}
+	swapSAB_CAR_btn.onclick = function () {
+		v1 = document.getElementById("sab_input").value
+		v2 = document.getElementById("car_input").value
+
+		document.getElementById("sab_input").value = v2
+		document.getElementById("car_input").value = v1
+	}
+	swapCAR_FUE_btn.onclick = function () {
+		v1 = document.getElementById("car_input").value
+		v2 = document.getElementById("fue_input").value
+
+		document.getElementById("car_input").value = v2
+		document.getElementById("fue_input").value = v1
+	}
 }
 
 /*Guerrero*/

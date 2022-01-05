@@ -1,5 +1,4 @@
 .basic {
-  float: left;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 33%;
@@ -7,10 +6,9 @@
 }
 
 .medium {
-  float: left;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 50%;
+  width: 33%;
   margin: 2px;
 }
 

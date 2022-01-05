@@ -1,0 +1,29 @@
+.basic {
+  float: left;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 33%;
+  margin: 2px;
+}
+
+.medium {
+  float: left;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin: 2px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+   padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+html{
+	margin: 5px;
+}

@@ -30,6 +30,8 @@ html {
 }
 
 .column {
+  margin: 2px;
+  padding: 3px;
   float: left;
   width: 30%;
   border: 1px solid #030a0b;

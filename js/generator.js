@@ -130,7 +130,8 @@ for (var i = 0; i < racesList.length; i++) {
 
 razas = [{
 	"humano": {
-		"ddg": "1d8",
+		"nombre": "humano",
+		"ddg": 8,
 		"bonos": {
 			"fuerza": 0,
 			"destreza": 0,
@@ -144,7 +145,8 @@ razas = [{
 			"puntos de habilidad_nivel": "Ganan 1 punto de habilidad extra por nivel"
 		}
 	}, "elfo": {
-		"ddg": "1d8",
+		"nombre": "elfo",
+		"ddg": 6,
 		"bonos": {
 			"fuerza": 0,
 			"destreza": 2,
@@ -160,7 +162,8 @@ razas = [{
 		}
 	},
 	"enano": {
-		"ddg": "1d10",
+		"nombre": "enano",
+		"ddg": 10,
 		"bonos": {
 			"fuerza": 0,
 			"destreza": -2,
@@ -176,7 +179,8 @@ razas = [{
 		}
 	},
 	"orco": {
-		"ddg": "1d10",
+		"nombre": "orco",
+		"ddg": 8,
 		"bonos": {
 			"fuerza": 2,
 			"destreza": 0,
@@ -192,7 +196,8 @@ razas = [{
 		}
 	},
 	"mediano": {
-		"ddg": "1d6",
+		"nombre": "mediano",
+		"ddg": 6,
 		"bonos": {
 			"fuerza": 0,
 			"destreza": 1,
@@ -284,7 +289,7 @@ tblHabilidades = `</table >
 
 function generateAtributes() {
 	race = race_selector.value.toLowerCase();
-	character_json["race"] = race_selector.value;
+	character_json["raza"] = razas[0][race_selector.value.toLowerCase()];
 	base = 4;
 	jQuery.each(character_json["atributes"], function (i, val) {
 		val = getCharac() + base + razas[0][race]["bonos"][i]
@@ -292,7 +297,8 @@ function generateAtributes() {
 
 	});
 	console.log(character_json)
-	raza_h3.innerHTML = "Raza: " + character_json["race"]
+
+	raza_h3.innerHTML = "Raza: " + character_json["raza"]["nombre"]
 
 	atributes_html = `<h3>Atributos</h3>
 	<table id="atributes" class="basic">
@@ -406,4 +412,16 @@ function generateAtributes() {
 		document.getElementById("car_input").value = v2
 		document.getElementById("fue_input").value = v1
 	}
+}
+
+function generateCharacteristics() {
+
+	//let puntos_de_golpe = character_json["ddg"] + character_json["atributes"]["constitucion"]
+	//console.log(puntos_de_golpe);
+	//let energia = character_json["nivel"]
+	//console.log(energia);
+
+
+
+
 }

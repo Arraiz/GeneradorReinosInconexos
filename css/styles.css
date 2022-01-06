@@ -1,27 +1,43 @@
 .basic {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 33%;
+  width: 100%;
   margin: 2px;
 }
-
+input {
+  width: 50px;
+}
 .medium {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 33%;
+  width: 100%;
   margin: 2px;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
-   padding: 8px;
+  padding: 8px;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-html{
-	margin: 5px;
+html {
+  margin: 6px;
+}
+
+.column {
+  float: left;
+  width: 30%;
+  border: 1px solid #030a0b;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

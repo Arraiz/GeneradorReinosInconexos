@@ -1,234 +1,113 @@
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/styles.css">
-	<title>Document</title>
-</head>
-<body>
-	<h2>Selector</h2>
-	<table>
-	<tr>
-		<th>Raza</th>
-		<th>Clase</th>
-		<th>Nivel</th>
-	</tr>
-	<tr>
-		<td>
-			<select id="racial_selector" name="Seleccionar Raza">
-			</select>
-		</td>
-		<td>
-			<select name="Seleccionar Clase">
-			<option value="value1" selected>Guerrero</option>
-			<option value="value2" >Value 2</option>
-			<option value="value3">Value 3</option>
-			</select>
-		</td>
-		<td>
-			<select name="Seleccionar Nivel">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Selector</h2>
+    <table>
+      <tr>
+        <th>Raza</th>
+        <th>Clase</th>
+        <th>Nivel</th>
+      </tr>
+      <tr>
+        <td>
+          <select id="racial_selector" name="Seleccionar Raza"></select>
+        </td>
+        <td>
+          <select id="class_selector" name="Seleccionar Clase"></select>
+        </td>
+        <td>
+          <select name="Seleccionar Nivel"></select>
+        </td>
+      </tr>
+    </table>
+    <button id="generateButton">Generar</button>
+    <hr />
+    <h2>Descripcion del Personaje</h2>
 
-			</select>
-			</td>
-	</tr>
-	</table>
-	<button id="generateButton" >Generar</button>
-	<hr>
-	<h2>Descripcion del Personaje</h2>
-
-<!-- **************
+    <!-- **************
 BASIC INFO
 ************** -->
-<h3 id="raza_h3">Raza: </h3>
-<h3 id="clase_h3">Clase: </h3>
+    <div class="row">
+      <div class="column">
+        <h4>Nombre: <input type="text" name="" id="" /></h4>
+        <h4 id="raza_h3">Raza:</h4>
+        <h4 id="clase_h3">Clase:</h4>
+        <h4>PX: <input type="text" name="" id="" /></h4>
+        <h4>Nivel: <input type="text" name="" id="" /></h4>
 
-<!-- **************
-ATRIBUTES TABLE 
-************** -->
-<div id="atributtes_div">
+        <div id="atributtes_div"></div>
 
-</div>
-	
-<!-- **************
-************** -->
- 
-<!-- **************
-CHARACTERISTICS TABLE
-************** -->
+        <div id="chars_div"></div>
+      </div>
 
-<div id="chars_div">
+      <div class="column">
+        <h3>Habilidades</h3>
+        <table id="habTbl" class="basic">
+          <tr>
+            <th>Tipo</th>
+            <th>Habilidad</th>
+            <th>Rango</th>
+            <th><button id="añadir_hab_basica">+</button></th>
+          </tr>
+        </table>
+        <h4>Habilidades artisticas</h4>
+        <table id="habArTbl" class="basic">
+          <tr>
+            <th>Tipo</th>
+            <th>Habilidad</th>
+            <th>Rango</th>
+            <th><button id="añadir_hab_art">+</button></th>
+          </tr>
+        </table>
+        <h4>Montar</h4>
+        <table id="habMonTbl" class="basic">
+          <tr>
+            <th>Tipo</th>
+            <th>Habilidad</th>
+            <th>Rango</th>
+            <th><button id="añadir_hab_montar">+</button></th>
+          </tr>
+        </table>
+      </div>
 
-</div>
+      <div class="column">
+        <h3>Saberes</h3>
+        <table id="saberesTbl" class="basic">
+          <tr>
+            <th>Tipo</th>
+            <th>Habilidad</th>
+            <th>Rango</th>
+            <th><button id="addSaber">+</button></th>
+          </tr>
+        </table>
+        <h4>Saberes teologicos</h4>
+        <table id="saberesTeoTbl" class="basic">
+          <tr>
+            <th>Tipo</th>
+            <th>Habilidad</th>
+            <th>Rango</th>
+            <th><button id="addSaberTeo">+</button></th>
+          </tr>
+        </table>
+        <h4>Saberes Arcanos</h4>
+        <table id="saberesArcTbl" class="basic">
+          <tr>
+            <th>Tipo</th>
+            <th>Habilidad</th>
+            <th>Rango</th>
+            <th><button id="addSaberArc">+</button></th>
+          </tr>
+        </table>
+      </div>
+    </div>
 
-<h3>Caracteristicas</h3>
-
-	<table class="basic">
-		<tr>
-			<th>Caracteristica</th>
-			<th>Valor</th>
-		</tr>
-		<tr>
-			<td>Puntos de golpe</td>
-			<td>-</td>
-		</tr>
-		<tr>
-			<td>Energia</td>
-			<td>-</td>
-		</tr>
-		<tr>
-			<td>Movimiento</td>
-			<td>-</td>
-		</tr>
-		<tr>
-			<td>Salud mental</td>
-			<td>-</td>
-		</tr>
-	</table>
-	
-<!-- **************
-************** -->
-
-<!-- **************
-HABILITIES TABLE
-************** -->
-<h3>Habilidades</h3>
-		<table id="tblHabiWArrior" class="basic">
-		<tr>
-			<th>Habilidad</th>
-			<th>Rango</th>
-		</tr>
-		<tr>
-			<th>
-				<input type="text" value="Habilidad arma 1" >
-			</th>
-			<th>**</th>
-		</tr>
-		<tr>
-			<th>
-				<input type="text" value="Habilidad arma 2" >
-			</th>
-			<th>**</th>
-		</tr>
-		<tr>
-			<th>
-				<input type="text" value="Habilidad arma 3" >
-			</th>
-			<th>**</th>
-		</tr>
-		<tr>
-			<th>
-				<input type="text" value="Artesania" >
-			</th>
-			<td>**</td>
-		</tr>
-		<tr>
-			<td>Avistar</td>
-			<td>**</td>
-		</tr>
-		<tr>
-			<td>Montar</td>
-			<td>**</td>
-		</tr>
-
-		</table>
-		<table class="basic">
-			<th>Dote</th>
-			<th>Nivel</th>
-		<tr>
-			<th>Protegido hasta los dientes</th>
-			<th>**</th>
-		</tr>
-		<tr>
-		<th>Resistente</th>
-			<th>**</th>
-		</tr>
-		<tr>
-		<th>Fiereza</th>
-			<th>**</th>
-		</tr>
-		<tr>
-			<td>Ataque poderoso</td>
-			<td>**</td>
-		</tr>
-		<tr>
-			<td>Barrido</td>
-			<td>**</td>
-		</tr>
-	</table>
-
-	<!-- **************
-************** -->
-
-	<table class="medium">
-			<th>Arma</th>
-			<th>Daño</th>
-			<th>P.A</th>
-			<th>Durabilidad</th>
-			<th>Am.</th>
-			<th>Crtico</th>
-			<th>Alcance</th>
-			<th>Tipo</th>
-		<tr>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-		</tr>
-		<tr>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-
-		</tr>
-		<tr>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-
-		</tr>
-		<tr>
-			<td>**</td>
-			<td>**</td>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-
-		</tr>
-		<tr>
-			<td>**</td>
-			<td>**</td>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-			<th>**</th>
-
-		</tr>
-	</table>
-
-
-	<script src="js/generator.js"></script>
-</body>
-
-
+    <script src="js/generator.js"></script>
+  </body>
 </html>

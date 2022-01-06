@@ -1,8 +1,41 @@
 let button = document.getElementById('generateButton');
 let raza_h3 = document.getElementById('raza_h3');
 let clase_h3 = document.getElementById('clase_h3');
+let addHabBasica = document.getElementById('añadir_hab_basica');
+let addHabArt = document.getElementById('añadir_hab_art');
+let addHabmontar = document.getElementById('añadir_hab_montar');
+let addSaber = document.getElementById('addSaber');
+let addSaberTeo = document.getElementById('addSaberTeo');
+let addSaberArc = document.getElementById('addSaberArc');
 button.onclick = function () {
 	generateAtributes()
+	generateCharacteristics()
+}
+
+addHabBasica.onclick = function () {
+	$("#habTbl").find('tbody').append(`<tr><td><input type="text"</td><td><input type="text"</td><td><input type="text"</td></td></tr>`);
+	console.log("test");
+}
+addHabArt.onclick = function () {
+	$("#habArTbl").find('tbody').append(`<tr><td><input type="text"</td><td><input type="text"</td><td><input type="text"</td></td></tr>`);
+	console.log("test");
+}
+addHabmontar.onclick = function () {
+	$("#habMonTbl").find('tbody').append(`<tr><td><input type="text"</td><td><input type="text"</td><td><input type="text"</td></td></tr>`);
+	console.log("test");
+}
+addSaber.onclick = function () {
+	$("#saberesTbl").find('tbody').append(`<tr><td><input type="text"</td><td><input type="text"</td><td><input type="text"</td></td></tr>`);
+	console.log("test");
+}
+
+addSaberTeo.onclick = function () {
+	$("#saberesTeoTbl").find('tbody').append(`<tr><td><input type="text"</td><td><input type="text"</td><td><input type="text"</td></td></tr>`);
+	console.log("test");
+}
+addSaberArc.onclick = function () {
+	$("#saberesArcTbl").find('tbody').append(`<tr><td><input type="text"</td><td><input type="text"</td><td><input type="text"</td></td></tr>`);
+	console.log("test");
 }
 
 let fuerza;
@@ -31,6 +64,30 @@ character_json = {
 
 
 
+}
+
+/*Habilidades*/
+habilidades = {
+	"generales":
+		["abrir cerraduras", "acrobacias", "custom"],
+	"artisticas": {
+
+	},
+	"artesania": {
+
+	},
+	"montar": {
+
+	},
+	"saberes": {
+
+	},
+	"saberes teologicos": {
+
+	},
+	"saberes arcanos": {
+
+	}
 }
 
 
@@ -82,8 +139,10 @@ function getCharac() {
 /********************/
 
 racesList = ["Humano", "Elfo", "Enano", "Orco", "Mediano"]
+classList = ["guerrero", "rufian", "sacerdote", "mistico", "marcado", "explorador", "monje", "mago de combate", "duelista", "tirador", "bardo", "ninja"]
 
 let race_selector = document.getElementById('racial_selector');
+let class_selector = document.getElementById('class_selector');
 for (var i = 0; i < racesList.length; i++) {
 	let opt = racesList[i];
 	let el = document.createElement("option");
@@ -91,42 +150,15 @@ for (var i = 0; i < racesList.length; i++) {
 	el.value = opt;
 	race_selector.appendChild(el);
 }
+for (var i = 0; i < classList.length; i++) {
+	let opt = classList[i];
+	let el = document.createElement("option");
+	el.textContent = opt;
+	el.value = opt;
+	class_selector.appendChild(el);
+}
 
 
-// razas = [
-// 	humano = {
-// 		"ddg": "1d8",
-// 		"bonos": {
-// 			"fuerza": 0,
-// 			"destreza": 0,
-// 			"contitucion": 0,
-// 			"intelecto": 0,
-// 			"sabuduria": 0,
-// 			"carisma": 0,
-// 		},
-// 		"rasgos": {
-// 			"puntos de habilidad": "Durante la creacion de PJ ganas dos puntos de habilidad extra",
-// 			"puntos de habilidad_nivel": "Ganan 1 punto de habilidad extra por nivel"
-// 		}
-
-// 	},
-// 	enano = {
-// 		"ddg": "1d10",
-// 		"bonos": {
-// 			"fuerza": 0,
-// 			"destreza": -2,
-// 			"contitucion": 2,
-// 			"intelecto": 0,
-// 			"sabuduria": 0,
-// 			"carisma": 0,
-// 		},
-// 		"rasgos": {
-// 			"vision en la_penumbra": "vision en la penumbra (10 metros)",
-// 			"resistir frio": "Ventajas en tiradas de constitucion para resistir frio",
-// 			"resistentes sugestion": "ventajas en tiradas para resistor encantamientos e ilusiones"
-// 		}
-// 	}
-// ]
 
 razas = [{
 	"humano": {
@@ -217,8 +249,32 @@ razas = [{
 ]
 
 
+
+
+
 /*CLASES*/
-/*Guerrero*/
+
+clases = [{
+	"guerrero": {
+		"nombre": "guerrero",
+		"habilidades": {
+			"Habilidad armas 1": "",
+			"Habilidad armas 2": "",
+			"Habilidad armas 3": "",
+			"Artesania": "",
+			"Avistar": "",
+			"Montar": ""
+		},
+		//esto iria en funcion del nivel pero de momento solo nivel 1
+		"dotes": {
+			"Fiereza(pasiva)": "Cada vez que mata a un oponente de un golpe, el guerrero gana un ataque adicional."
+
+		},
+		"salario": "fuerza x 3"
+	}
+}
+]
+
 
 tblHabilidades = `</table >
 		<table id="tblHabiWArrior" class="basic">
@@ -289,7 +345,9 @@ tblHabilidades = `</table >
 
 function generateAtributes() {
 	race = race_selector.value.toLowerCase();
+	clase = class_selector.value.toLowerCase();
 	character_json["raza"] = razas[0][race_selector.value.toLowerCase()];
+	character_json["clase"] = clases[0][class_selector.value.toLowerCase()];
 	base = 4;
 	jQuery.each(character_json["atributes"], function (i, val) {
 		val = getCharac() + base + razas[0][race]["bonos"][i]
@@ -299,6 +357,7 @@ function generateAtributes() {
 	console.log(character_json)
 
 	raza_h3.innerHTML = "Raza: " + character_json["raza"]["nombre"]
+	clase_h3.innerHTML = "Clase: " + character_json["clase"]["nombre"]
 
 	atributes_html = `<h3>Atributos</h3>
 	<table id="atributes" class="basic">
@@ -416,12 +475,37 @@ function generateAtributes() {
 
 function generateCharacteristics() {
 
-	//let puntos_de_golpe = character_json["ddg"] + character_json["atributes"]["constitucion"]
-	//console.log(puntos_de_golpe);
+	let puntos_de_golpe = character_json["raza"]["ddg"] + character_json["atributes"]["constitucion"]
+	console.log(puntos_de_golpe);
 	//let energia = character_json["nivel"]
 	//console.log(energia);
 
 
+	caracteristias_html = `<h3>Caracteristicas</h3>
 
+	<table class="basic">
+		<tr>
+			<th>Caracteristica</th>
+			<th>Valor</th>
+		</tr>
+		<tr>
+			<td  >Puntos de golpe</td>
+			<td id="puntos_de_golpe">`+ puntos_de_golpe + `</td>
+		</tr>
+		<tr>
+			<td>Energia</td>
+			<td id="energia">`+ 1 + `</td>
+		</tr>
+		<tr>
+			<td>Movimiento</td>
+			<td id="movimiento">`+ 1 + `</td>
+		</tr>
+		<tr>
+			<td>Salud mental</td>
+			<td id="salud_mental">`+ 1 + `</td>
+		</tr>
+	</table>`
+
+	document.getElementById("chars_div").innerHTML = caracteristias_html;
 
 }
